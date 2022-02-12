@@ -23,24 +23,6 @@ appBar: {
       color: "#003366"
     },
 
-  
-    mainGrid:{
-    width: "100%",
-    height: "100%",
-    overflow: "hidden",
-    position: "relative",
-},
-
-    postGrid:{
-      position: "absolute",
-      top: "0",
-      bottom: "0",
-      left: "0",
-      right: "-17px", /* Increase/Decrease this value for cross-browser compatibility */
-      overflow: "scroll",
-},
-  
-
   },
 }));
  

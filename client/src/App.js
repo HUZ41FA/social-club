@@ -8,9 +8,8 @@ import Form from "./components/Form/Form"
 import socialclub from "./images/socialclub.png"
 import useStyles from "./styles"
 import { useDispatch } from 'react-redux';
-import {theme} from "./customTheme"
 import { ThemeProvider } from '@material-ui/core';
-
+import { NavBar } from "./components/NavBar/NavBar"
 const App = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
@@ -23,18 +22,24 @@ const App = () => {
 
   return (
     <Container maxwidth="lg" >
-      <AppBar className={classes.appBar} position='static' color='inherit'>
-        <img className={classes.image} src={socialclub} alt='memories' height={60}></img>
-      <ThemeProvider theme={theme}>
-        <Typography className={classes.heading} variant='h2' align='center'> SocialClub</Typography>
-      </ThemeProvider>
-      </AppBar>
+      <NavBar/>
       <Grow in>
         <Grid container justifyContent="space-between" align='stretch'>
-          <Grid style={{maxHeight: '100vh', overflow: 'auto'}} item xs={12} sm={7}>
+          <Grid sx={{
+    "&::-webkit-scrollbar": {
+	  width: 20
+    },
+    "&::-webkit-scrollbar-track": {
+	  backgroundColor: "orange"
+    },
+    "&::-webkit-scrollbar-thumb": {
+	  backgroundColor: "red",
+	  borderRadius: 2
+    }
+  }} item xs={12} sm={7}>
             <Posts  setCurrentId={setCurrentId}/>
           </Grid>
-          <Grid item xs={12} sm={4}> 
+          <Grid item xs={12} sm={5}> 
             <Form currentId={currentId} setCurrentId={setCurrentId}/>
           </Grid>
         </Grid>
